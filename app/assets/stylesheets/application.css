@@ -1,0 +1,287 @@
+/*
+ * This is a manifest file that'll be compiled into application.css.
+ *
+ * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
+ * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
+ * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
+ * depending on specificity.
+ *
+ * Consider organizing styles into separate files for maintainability.
+ */
+
+:root {
+  --sky-top: #6a33a5;
+  --sky-mid: #d64b78;
+  --sky-bottom: #ffbe5c;
+  --panel: #221433;
+  --panel-shadow: #0f0919;
+  --pixel-red: #ff3b30;
+  --pixel-rose: #ff6f91;
+  --pixel-gold: #ffd95a;
+  --pixel-cream: #fff1c1;
+  --pixel-grass: #58b746;
+  --pixel-deep-grass: #2d7c29;
+  --pixel-cloud: #fff9f0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background:
+    linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 48%, var(--sky-bottom) 100%);
+  image-rendering: pixelated;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--pixel-cream);
+  font-family: "Courier New", monospace;
+}
+
+.hero-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    radial-gradient(circle at 20% 20%, rgb(255 255 255 / 0.18) 0 8%, transparent 8%),
+    radial-gradient(circle at 80% 18%, rgb(255 255 255 / 0.12) 0 6%, transparent 6%),
+    radial-gradient(circle at 15% 70%, rgb(255 255 255 / 0.14) 0 4%, transparent 4%);
+  background-size: 180px 180px, 220px 220px, 140px 140px;
+}
+
+.hero-card {
+  width: min(100%, 920px);
+  padding: 28px;
+  border: 6px solid var(--panel-shadow);
+  background:
+    linear-gradient(180deg, rgb(34 20 51 / 0.95), rgb(53 27 79 / 0.93)),
+    var(--panel);
+  box-shadow:
+    0 0 0 6px var(--pixel-gold),
+    0 0 0 12px var(--pixel-red),
+    18px 18px 0 0 rgb(15 9 25 / 0.65);
+}
+
+.hero-kicker,
+.hero-copy,
+.hero-marquee {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero-kicker {
+  margin: 0 0 16px;
+  color: var(--pixel-gold);
+  font-size: clamp(0.85rem, 2vw, 1.1rem);
+}
+
+.hero-title {
+  margin: 0;
+  color: #fff7dd;
+  font-size: clamp(3rem, 10vw, 6.6rem);
+  line-height: 0.92;
+  text-transform: uppercase;
+  text-shadow:
+    4px 4px 0 var(--pixel-red),
+    8px 8px 0 var(--panel-shadow);
+}
+
+.hero-copy {
+  max-width: 48rem;
+  margin: 24px 0;
+  color: #ffe8eb;
+  font-size: clamp(0.95rem, 2.4vw, 1.25rem);
+  line-height: 1.7;
+}
+
+.hero-marquee {
+  display: flex;
+  gap: 18px;
+  overflow: hidden;
+  padding: 12px 0;
+  margin-bottom: 28px;
+  white-space: nowrap;
+  color: var(--pixel-cream);
+  border-block: 4px solid var(--pixel-gold);
+}
+
+.hero-marquee span {
+  animation: parade 10s linear infinite;
+}
+
+.hero-stage {
+  position: relative;
+  overflow: hidden;
+  min-height: 300px;
+  border: 4px solid var(--pixel-cream);
+  background:
+    linear-gradient(180deg, #8848cc 0%, #ff7190 55%, #ffcc68 100%);
+}
+
+.sun,
+.cloud,
+.castle,
+.grass,
+.flowers {
+  position: absolute;
+}
+
+.sun {
+  top: 28px;
+  right: 52px;
+  width: 84px;
+  height: 84px;
+  background: var(--pixel-gold);
+  box-shadow:
+    0 0 0 8px #ffef9d,
+    0 0 0 16px rgb(255 217 90 / 0.35);
+}
+
+.cloud {
+  top: 46px;
+  width: 112px;
+  height: 34px;
+  background: var(--pixel-cloud);
+  box-shadow:
+    28px 0 0 var(--pixel-cloud),
+    56px 0 0 var(--pixel-cloud),
+    14px -18px 0 var(--pixel-cloud),
+    42px -18px 0 var(--pixel-cloud);
+}
+
+.cloud-left {
+  left: 48px;
+}
+
+.cloud-right {
+  right: 180px;
+}
+
+.castle {
+  left: 50%;
+  bottom: 64px;
+  display: flex;
+  align-items: flex-end;
+  transform: translateX(-50%);
+}
+
+.castle-tower,
+.castle-gate {
+  position: relative;
+  background: #f8d58d;
+  border: 4px solid #7b3b17;
+}
+
+.castle-tower {
+  width: 88px;
+  height: 128px;
+}
+
+.castle-gate {
+  width: 160px;
+  height: 96px;
+  margin-inline: -4px;
+}
+
+.castle-tower::before,
+.castle-gate::before {
+  content: "";
+  position: absolute;
+  inset: -20px 0 auto;
+  height: 20px;
+  background:
+    linear-gradient(90deg, #7b3b17 0 16%, transparent 16% 20%, #7b3b17 20% 36%, transparent 36% 40%, #7b3b17 40% 56%, transparent 56% 60%, #7b3b17 60% 76%, transparent 76% 80%, #7b3b17 80% 100%);
+}
+
+.castle-gate::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 54px;
+  height: 54px;
+  transform: translateX(-50%);
+  background: #7b3b17;
+}
+
+.grass {
+  inset: auto 0 0;
+  height: 64px;
+  background:
+    linear-gradient(180deg, var(--pixel-grass) 0 55%, var(--pixel-deep-grass) 55% 100%);
+}
+
+.flowers {
+  bottom: 64px;
+  width: 90px;
+  height: 90px;
+  background:
+    radial-gradient(circle at 18px 22px, #ff5b7f 0 9px, transparent 10px),
+    radial-gradient(circle at 42px 18px, #fff1c1 0 8px, transparent 9px),
+    radial-gradient(circle at 64px 28px, #ff5b7f 0 9px, transparent 10px),
+    radial-gradient(circle at 26px 56px, #fff1c1 0 8px, transparent 9px),
+    radial-gradient(circle at 56px 60px, #ff5b7f 0 9px, transparent 10px);
+}
+
+.flowers-left {
+  left: 36px;
+}
+
+.flowers-right {
+  right: 36px;
+}
+
+@keyframes parade {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-140px);
+  }
+}
+
+@media (max-width: 720px) {
+  .hero-card {
+    padding: 20px;
+    box-shadow:
+      0 0 0 4px var(--pixel-gold),
+      0 0 0 8px var(--pixel-red),
+      12px 12px 0 0 rgb(15 9 25 / 0.65);
+  }
+
+  .hero-stage {
+    min-height: 240px;
+  }
+
+  .cloud-right {
+    right: 60px;
+    transform: scale(0.7);
+    transform-origin: top right;
+  }
+
+  .cloud-left {
+    left: 18px;
+    transform: scale(0.7);
+    transform-origin: top left;
+  }
+
+  .castle {
+    transform: translateX(-50%) scale(0.78);
+    transform-origin: bottom center;
+  }
+
+  .sun {
+    right: 24px;
+    width: 54px;
+    height: 54px;
+    box-shadow:
+      0 0 0 6px #ffef9d,
+      0 0 0 12px rgb(255 217 90 / 0.35);
+  }
+}
